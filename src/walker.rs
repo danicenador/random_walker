@@ -11,7 +11,7 @@ pub struct Walker {
 impl Walker {
     pub fn new() -> Self {
         Self {
-            last_position: Vec2::new(0, 0),
+            last_position: Vec2::new(0.0, 0.0),
             rng_factory: RngFactory::new(),
             path: Path::new(),
         }
@@ -31,10 +31,10 @@ impl Walker {
 
 pub fn get_step(random_input: u32) -> Vec2 {
     match random_input % 4{
-        0 => Vec2::new(1, 0),
-        1 => Vec2::new(-1, 0),
-        2 => Vec2::new(0, 1),
-        3 => Vec2::new(0, -1),
-        _ => Vec2::new(0, 0),
+        0 => Vec2::new(1.0, 0.0),
+        1 => Vec2::new(-1.0, 0.0),
+        2 => Vec2::new(0.0, 1.0),
+        3 => Vec2::new(0.0, -1.0),
+        _ => Vec2::new(0.0, 0.0),
     }
 }

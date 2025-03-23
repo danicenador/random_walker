@@ -19,9 +19,9 @@ fn one_step() {
     let mut walker = walker::Walker::new();
     walker.step();
     let walker_position: Vec2 = walker.last_position;
-    let x_position_abs: i32 = walker_position.x.abs();
-    let y_position_abs: i32 = walker_position.y.abs();
-    assert_eq!(x_position_abs + y_position_abs, 1);
+    let x_position_abs: f32 = walker_position.x.abs();
+    let y_position_abs: f32 = walker_position.y.abs();
+    assert_eq!(x_position_abs + y_position_abs, 1.0);
 }
 
 #[test]
@@ -35,9 +35,9 @@ fn path_segment_length() {
     let possition_1: Vec2 = step_performed.0;
     let possition_2: Vec2 = step_performed.1;
     let step: Vec2 = possition_1.sub(&possition_2);
-    let x_position_abs: i32 = step.x.abs();
-    let y_position_abs: i32 = step.y.abs();
-    assert_eq!(x_position_abs + y_position_abs, 1);
+    let x_position_abs: f32 = step.x.abs();
+    let y_position_abs: f32 = step.y.abs();
+    assert_eq!(x_position_abs + y_position_abs, 1.0);
 }
 
 
