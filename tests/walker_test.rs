@@ -39,3 +39,14 @@ fn path_segment_length() {
     let y_position_abs: i32 = step.y.abs();
     assert_eq!(x_position_abs + y_position_abs, 1);
 }
+
+
+#[test]
+fn has_moved() {
+    let mut walker = walker::Walker::new();
+    walker.step();
+    let old_position: Vec2 = walker.last_position;
+    walker.step();
+    let new_position: Vec2 = walker.last_position;
+    assert_ne!(old_position, new_position);
+}
