@@ -1,6 +1,6 @@
 use macroquad::{prelude, time, window};
 
-use crate::constants::{WINDOW_HEIGHT, WINDOW_WIDTH};
+use crate::constants::{WINDOW_HEIGHT, WINDOW_WIDTH, LINE_THICKNESS};
 use crate::vec2::Vec2;
 
 
@@ -22,11 +22,11 @@ pub struct DrawEngine;
 impl DrawEngineTrait for DrawEngine {
     fn draw_line(&self, start: &Vec2, end: &Vec2, color: Color) {
         prelude::draw_line(
-            start.x,
-            start.y,
-            end.x,
-            end.y,
-            1.0,
+            start.x + WINDOW_WIDTH as f32 / 2.0,
+            start.y + WINDOW_HEIGHT as f32 / 2.0,
+            end.x + WINDOW_WIDTH as f32 / 2.0,
+            end.y + WINDOW_HEIGHT as f32 / 2.0,
+            LINE_THICKNESS,
             prelude::Color::new(color.r, color.g, color.b, color.a),
         );
     }

@@ -1,6 +1,7 @@
 use crate::vec2::Vec2;
 use crate::rng_factory::RngFactory;
 use crate::path::Path;
+use crate::draw_engine::{DrawEngineTrait, Color};
 
 pub struct Walker {
     pub last_position: Vec2,
@@ -25,6 +26,17 @@ impl Walker {
         self.path.add_segment(self.last_position, new_position);
 
         self.last_position = new_position;
+    }
+
+    pub fn draw(&self, draw_engine: &impl DrawEngineTrait) {
+        for segment in &self.path.segments {
+            draw_engine.draw_line(&segment.0, &segment.1, Color {
+                r: 1.0,
+                g: 0.0,
+                b: 0.0,
+                a: 1.0,
+            });
+        }
     }
 
 }
